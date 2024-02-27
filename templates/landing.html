@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <title>MedCorner WebPage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/landing_style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,500;1,300&family=DM+Sans&family=Gloock&family=Inter&family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+
+        <img src="{{url_for('static',filename='img/MedCorner_Logo.png')}}" alt="Logo" class="logo">
+
+        <ul class="navlist">
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#Doctor-Login">Doctor Login</a></li>
+            <li><a href="#Patient-Login">Patient Login</a></li>
+        </ul>
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+    </header>
+
+    <section class="landing" id="Home">
+        <div class="landing-text">
+            <img src="{{url_for('static',filename='img/medical_Logo1.png')}}" alt="medical_Logo">
+            <h1>Empowering Health</h1>
+            <h2>Seamless Care Starts Here</h2>
+            <div class="landing-links">
+                <a href="#" id="Register-now-link">Book an Appointment!</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
