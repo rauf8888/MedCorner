@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,500;1,300&family=DM+Sans&family=Gloock&family=Inter&family=PT+Sans&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/doctor_login.css') }}" rel="stylesheet" >
+    <title>Doctor-Login</title>
+</head>
+<body>
+    <a href='/home'>Home</a>
+    <div class="container">
+        <h4>Doctor's Login Portal</h4>
+        <form method="POST">
+            <div class="form">
+                <div class="col">
+                    <input type="text" name="username" placeholder="Doctor ID" autocomplete="off" required
+                    style="width: 200px; font-size: 16px; background-color: #FFF6E0; border-radius: 5px; height: 30px;">
+                    <input type="password" name="password" placeholder="Password" required
+                    style="width: 200px; font-size: 16px; background-color: #FFF6E0; border-radius: 5px; height: 30px;"><br><br>
+                    <input type="submit" value="Login">
+                </div> 
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="valid">{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </form>
+    </div>
+</body>
+</html>

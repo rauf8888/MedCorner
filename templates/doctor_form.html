@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor-Form</title>
+</head>
+<body>
+    <a href='/home'>Home</a>
+    <h1>Doctor Advisory Form</h1>
+    <form method="post" enctype="multipart/form-data">
+        <label for="dropdown">Select Patient:</label>
+        <select name="dropdown" id="dropdown">
+            <option value="option1">Patient 1</option>
+            <option value="option2">Patient 2</option>
+            <option value="option3">Patient 3</option>
+        </select>
+        <br><br>
+        <label for="advice">Advice</label>
+        <input type='text' id="textfield1" name="textfield1">
+        <br><br>
+        <label for="textfield2">Prescription</label>
+        <input type="text" id="textfield2" name="textfield2">
+        <br><br>
+        <label for="audio">Upload Session's Audio File:</label>
+        <input type="file" id="audio" name="audio">
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
