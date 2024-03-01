@@ -3,29 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,500;1,300&family=DM+Sans&family=Gloock&family=Inter&family=PT+Sans&display=swap" rel="stylesheet">
     <title>Doctor-Form</title>
 </head>
-<body>
+<body style="font-family: 'DM Sans', sans-serif;">
     <a href='/home'>Home</a>
-    <h1>Doctor Advisory Form</h1>
+    <h2>Welcome Doctor {{dname}}</h2>
+    <h3>Doctor Advisory Form</h3>
     <form method="post" enctype="multipart/form-data">
         <label for="dropdown">Select Patient:</label>
         <select name="dropdown" id="dropdown">
-            <option value="option1">Patient 1</option>
-            <option value="option2">Patient 2</option>
-            <option value="option3">Patient 3</option>
+            <option value="Patient1">Patient 1</option>
+            <option value="Patient2">Patient 2</option>
+            <option value="Patient3">Patient 3</option>
         </select>
         <br><br>
         <label for="advice">Advice</label>
-        <input type='text' id="textfield1" name="textfield1">
+        <input type='text' id="textfield1" name="textfield1" autocomplete="off">
         <br><br>
         <label for="textfield2">Prescription</label>
-        <input type="text" id="textfield2" name="textfield2">
+        <input type="text" id="textfield2" name="textfield2" autocomplete="off">
         <br><br>
         <label for="audio">Upload Session's Audio File:</label>
         <input type="file" id="audio" name="audio">
         <br><br>
         <button type="submit">Submit</button>
     </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p class="valid" style="text-align: center; font-size: large;">{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 </body>
 </html>
