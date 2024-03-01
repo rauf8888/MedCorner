@@ -12,5 +12,16 @@ cursor.execute(stringtoExcecute2)
  
 print('OH YEAH MAMA MIAA')
 
+stringToExecute3 = '''SELECT PNAME from PATIENT_DETAILS'''
+cursor.execute(stringToExecute3)
+result=cursor.fetchall()
+print(result)
+a = 0
+for i in result:
+    stringToExecute4 = '''CREATE TABLE IF NOT EXISTS {}(DATE TEXT, ADVICE TEXT, PRESCRIPTION TEXT, AUDIO TEXT)'''.format(i[0])
+    cursor.execute(stringToExecute4)
+    print("Table Created Successfully ")
+    a=+1
+
 db.commit()
 cursor.close()
