@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,500;1,300&family=DM+Sans&family=Gloock&family=Inter&family=PT+Sans&display=swap" rel="stylesheet">
+    <title>Patient-Dashboard</title>
+</head>
+<body style="font-family: 'DM Sans', sans-serif;">
+    <a href='/home'>Home</a>
+    <h2>Welcome {{pname}}</h2>
+
+    {% for data_records in data %}
+    <h2>---------------------------------------------------------------------------------------</h2>
+    <h4>Date: <span style="font-weight: 500;">{{data_records[0]}}</span></h4>
+    <h4>Prescription: <span style="font-weight: 500;">{{data_records[2]}}</span></h4>
+    <h4>Advice: <span style="font-weight: 500;">{{data_records[1]}}</span></h4>
+    <audio src="\Advisory_Audios\{{data_records[3]}}" controls></audio>
+    <br>
+    <h2>---------------------------------------------------------------------------------------</h2>
+    {% endfor %}
+
+</body>
