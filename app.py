@@ -26,7 +26,7 @@ def doctor_login():
         x = False
 
         for users in result:
-            if duser in users[2] or check_password_hash(users[3],dpass):
+            if duser in users[2] and check_password_hash(users[3],dpass):
                 x = True
                 return redirect(url_for('doctor_dashboard'))
         if x == False:
@@ -42,11 +42,11 @@ def patient_login():
     if request.method == 'POST':
         puser = request.form['username']
         ppass = request.form['password']
-        session['username'] = puser
+        session['pusername'] = puser
         x = False
 
         for users in result:
-            if puser in users[2] or check_password_hash(users[3],ppass):
+            if puser in users[2] and check_password_hash(users[3],ppass):
                 x = True
                 return redirect(url_for('patient_dashboard'))
         if x == False:
@@ -65,11 +65,12 @@ def doctor_dashboard():
 
     if request.method == 'POST':
         try:
-            date_today = date.today().strftime('%Y-%m-%d')
+            date_today = request.form['dateofday']
             patient_name = request.form['dropdown']
             advice = request.form['textfield1']
             prescription = request.form['textfield2']
             audio_file = request.files['audio']
+            print(date_today)
             ext =audio_file.filename.split('.')
             new_filename = f"{patient_name}{date_today}.{ext[1]}"
             audio_file.filename = new_filename
@@ -86,7 +87,18 @@ def doctor_dashboard():
 
 @app.route('/patient-dashboard')
 def patient_dashboard():
-    return "Hey there, Patient"
+    puser = session.get('pusername')
+    query = 'SELECT PNAME FROM PATIENT_DETAILS WHERE USERNAME = ?'
+    cursor.execute(query,(puser,))
+    record = cursor.fetchone()
+    pname = record[0].capitalize()
+
+    query2 = "SELECT * FROM {}".format(pname)
+    cursor.execute(query2)
+    records = cursor.fetchall()
+    print(records)
+
+    return render_template('patient_dashboard.html',pname = pname, data = records)
 
 
 if __name__ == '__main__':
