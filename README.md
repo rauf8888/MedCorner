@@ -18,3 +18,5 @@ After Successfull installation of all packages, Run the program by typing in the
 py app.py
 ``` 
 in the terminal
+
+Open the port number where the application is being hosted and click on doctor's login and as in for a sample username and password type **rauf** in both username and password
